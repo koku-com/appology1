@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Darling 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Poppins", cursive;
+      background: linear-gradient(135deg, #ffd1dc, #fff0f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      max-width: 750px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 35px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      position: relative;
+      margin-top: 30px;
+      height: 120px;
+    }
+
+    button {
+      padding: 15px 35px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff5fa2, #ff85b3);
+      color: white;
+      box-shadow: 0 6px 15px rgba(255, 95, 162, 0.4);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    #runaway1,
+    #runaway2 {
+      position: absolute;
+    }
+
+    .please {
+      font-size: 64px;
+      color: #ff2f7f;
+      margin-top: 20px;
+      display: none;
+      font-weight: bold;
+      animation: pulse 0.8s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+
+    .hearts {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <div class="hearts">💖🥺💞</div>
+    <h1>
+      hwloooo my darlingg 💕🥹<br><br>
+      im so so sorry for what i did last night 😔💔 and have understood that
+      i shouldnt let u sleep half heartedd!!! 🥺👉👈
+    </h1>
+    <div class="buttons">
+      <button onclick="goToPage2()">i forgive you 💗</button>
+      <button id="runaway1">i hate you 😠</button>
+    </div>
+    <div class="please" id="please1">PLEASE 🥺💘</div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <div class="hearts">🥰♟️💖</div>
+    <h1>
+      i knew you'd forgive me!!! 😭💞<br><br>
+      i love you so much for thattttt 🥰💖<br><br>
+      andd how about we make a bet??? 😏♟️<br>
+      the one who loses in chess match has to tell the other a fantasyyy??? 🙈🔥<br><br>
+      what do u say??? sweetheartt??? 💕🥹
+    </h1>
+    <div class="buttons">
+      <button onclick="showFinalMessage()">okay! 😍</button>
+      <button id="runaway2">no 😤</button>
+    </div>
+    <div class="please" id="please2">PLEASEEEE 🥺💗</div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <div class="hearts">💞💍💖</div>
+    <h1>
+      thanksyouu so much my cutie pieee 😘💗<br><br>
+      i love you so muchhhhhh 😭💞<br>
+      youre my fave person 🥹💖<br><br>
+      i love youuuu ♾️💕
+    </h1>
+  </div>
+
+  <script>
+    const runaway1 = document.getElementById("runaway1");
+    const runaway2 = document.getElementById("runaway2");
+    const please1 = document.getElementById("please1");
+    const please2 = document.getElementById("please2");
+
+    function moveButton(btn, pleaseText) {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 200);
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+      pleaseText.style.display = "block";
+    }
+
+    runaway1.addEventListener("mouseenter", () => {
+      moveButton(runaway1, please1);
+    });
+
+    runaway2.addEventListener("mouseenter", () => {
+      moveButton(runaway2, please2);
+    });
+
+    function goToPage2() {
+      document.getElementById("page1").classList.remove("active");
+      document.getElementById("page2").classList.add("active");
+    }
+
+    function showFinalMessage() {
+      document.getElementById("page2").classList.remove("active");
+      document.getElementById("page3").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
